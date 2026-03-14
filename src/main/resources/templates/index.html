@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<div th:fragment="content" class="max-w-7xl mx-auto px-4 py-8">
+
+    <!-- Hero Section -->
+    <div class="bg-white rounded-xl shadow p-10 text-center mb-8">
+        <h1 class="text-4xl font-bold mb-4">
+            Bienvenue chez SupplyFlow Logistics
+        </h1>
+
+        <p class="text-lg text-gray-600 mb-6">
+            Votre application interne de gestion d'entrepôt.
+        </p>
+
+        <div class="flex justify-center gap-4">
+            <a th:href="@{/produits}"
+               class="border border-gray-700 hover:bg-blue-700  px-6 py-3 rounded-lg text-lg">
+                Gérer les Produits
+            </a>
+
+            <a th:href="@{/fournisseurs}"
+               class="border border-gray-700 hover:bg-blue-700 px-6 py-3 rounded-lg text-lg">
+               Gérer les fournisseurs
+            </a>
+            <a th:href="@{/movements}"
+               class="border border-gray-700 hover:bg-blue-700 px-6 py-3 rounded-lg text-lg">
+                Voir les Mouvements
+            </a>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <div class="grid md:grid-cols-3 gap-6 text-center">
+
+        <div class="bg-white p-6 rounded-xl shadow">
+            <h3 class="text-xl font-semibold mb-2">Produits</h3>
+            <p class="text-gray-600">
+                Gérez l'inventaire, ajoutez, modifiez ou supprimez des articles de l'entrepôt.
+            </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow">
+            <h3 class="text-xl font-semibold mb-2">Fournisseurs</h3>
+            <p class="text-gray-600">
+                Gardez une trace de vos partenaires logistiques et de leurs coordonnées.
+            </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow">
+            <h3 class="text-xl font-semibold mb-2">Mouvements</h3>
+            <p class="text-gray-600">
+                Enregistrez chaque entrée et sortie de stock pour une traçabilité complète.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

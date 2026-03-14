@@ -20,12 +20,11 @@ public class MouvementStock {
 
     private LocalDateTime date;
 
-    public MouvementStock(int id, Produit produit, Integer quantite, String type, LocalDateTime date) {
-        this.id = id;
+    public MouvementStock( Produit produit, Integer quantite, String type) {
         this.produit = produit;
         this.quantite = quantite;
         this.type = type;
-        this.date = date;
+        this.date = LocalDateTime.now();
     }
 
     public MouvementStock() {

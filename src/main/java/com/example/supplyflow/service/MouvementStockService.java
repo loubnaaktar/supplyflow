@@ -25,6 +25,16 @@ public class MouvementStockService {
 @Transactional
     public void enregistrerMouvementStock(int idProduit, int quantite, String type){
         Produit produit = produitRepository.findById(idProduit).orElseThrow(()-> new RuntimeException("Produit non trouvé"));
+if ("sortie".equals(type)){
+    if (produit.getQuantite() < quantite){
+        System.out.println("stock insuffisant");
     }
+    produit.setQuantite(produit.getQuantite() - quantite);
+}else if ("entree".equals(type)){
+    produit.setQuantite(produit.getQuantite() + quantite);
+}
+MouvementStock mouvementStock = new MouvementStock(produit,quantite,type);
+mouvementStockRepository.save(mouvementStock);
+produitRepository.save(produit);
 }
 }

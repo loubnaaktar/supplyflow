@@ -3,7 +3,7 @@ package com.example.supplyflow.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "products")
+@Table(name = "produits")
 public class Produit {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
