@@ -2,6 +2,9 @@ package com.example.supplyflow.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "produits")
 public class Produit {
@@ -12,6 +15,9 @@ public class Produit {
     private String category;
     private Double prix;
     private int quantite;
+
+    @OneToMany(mappedBy = "produit", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MouvementStock> mouvements = new ArrayList<>();
 
     public Produit(int id, String name, String category, Double price, Integer quantity) {
         this.id = id;

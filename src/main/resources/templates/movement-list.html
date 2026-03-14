@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des mouvements de stock</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen p-8">
+
+<div class="max-w-7xl mx-auto">
+
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">Historique des Mouvements de Stock</h2>
+
+        <a th:href="@{/movements/ajouter}"
+           class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+            Nouveau Mouvement
+        </a>
+    </div>
+
+    <div class="overflow-x-auto bg-white rounded-xl shadow">
+        <table class="min-w-full divide-y divide-gray-200">
+
+            <thead class="bg-gray-800 text-white">
+            <tr>
+                <th class="px-6 py-3 text-left text-sm font-medium">ID Mouvement</th>
+                <th class="px-6 py-3 text-left text-sm font-medium">Produit</th>
+                <th class="px-6 py-3 text-left text-sm font-medium">Quantité</th>
+                <th class="px-6 py-3 text-left text-sm font-medium">Type</th>
+                <th class="px-6 py-3 text-left text-sm font-medium">Date</th>
+            </tr>
+            </thead>
+
+            <tbody class="divide-y divide-gray-200">
+            <tr th:each="movement : ${movements}" class="hover:bg-gray-100">
+
+                <td class="px-6 py-4" th:text="${movement.id}">1</td>
+
+                <td class="px-6 py-4" th:text="${movement.produit.nom}">
+                    Nom Produit
+                </td>
+
+                <td class="px-6 py-4" th:text="${movement.quantite}">
+                    0
+                </td>
+
+                <td class="px-6 py-4">
+                    <span
+                            th:text="${movement.type}"
+                            th:class="${movement.type == 'entree'} ?
+                                  'text-green-600 font-semibold' :
+                                  'text-red-600 font-semibold'">
+                        Type
+                    </span>
+                </td>
+
+                <td class="px-6 py-4"
+                    th:text="${#temporals.format(movement.date, 'dd/MM/yyyy HH:mm')}">
+                    Date
+                </td>
+
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+<div class="mt-6">
+    <a th:href="@{/}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">Retour</a>
+</div>
+</body>
+</html>

@@ -29,6 +29,4 @@ public class FournisseurController {
         fournisseurService.ajoutrFournissuer(fournisseur);
         return "redirect:/fournisseurs";
     }
-
-
 }
